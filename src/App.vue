@@ -1,23 +1,27 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <img class="logo" src="./assets/logo.png" alt="logo">
+    <!--3.使用組件-->
+    <HelloWorld/>
   </div>
 </template>
 
 <script>
+  //1.引入組件
+  import HelloWorld from './components/HelloWorld.vue'
 export default {
-  name: 'App1'
+      //2.映射組件
+  components:{
+    HelloWorld
+  }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.logo {
+ height: 400px;
+ width: 400px;
   margin-top: 60px;
 }
 </style>
