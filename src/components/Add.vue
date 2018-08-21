@@ -10,8 +10,7 @@
         <label>content</label>
         <textarea class="form-control" v-model="content" rows="6" placeholder="content"></textarea>
       </div>
-
-      <button type="submit" class="btn btn-default pull-right" @click="add">add</button>
+      <button class="btn btn-default pull-right" @click="add">add</button>
     </form>
 
   </div>
@@ -25,29 +24,29 @@
         required: true
       }
     },
-    data(){
+    data () {
       return {
         name: '',
         content: ''
       }
     },
     methods: {
-      add(){
-        //1檢查輸入合法性
+      add () {
+        /* 1檢查輸入合法性 */
         const name = this.name.trim()
         const content = this.content.trim()
         if (!name || !content) {
           alert('不能為空')
           return
         }
-        //2.把input數據封裝在comment物件
+        /* 2.把input數據封裝在comment物件 */
         const comment = {name, content}
-        //3.傳到comments
-        //comments是在APP組件更新(新增)也在APP做
+        /* 3.傳到comments */
+        /* comments是在APP組件更新(新增)也在APP做 */
         this.addComment(comment)
-        //4.清除輸入
-        this.name=''
-        this.content=''
+        /* 4.清除輸入 */
+        this.name = ''
+        this.content = ''
       }
     }
   }

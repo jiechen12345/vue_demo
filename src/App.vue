@@ -18,31 +18,31 @@
 </template>
 
 <script>
-  //1.引入組件
+  /* 1.引入組件 */
   import Add from './components/Add.vue'
   import List from './components/List.vue'
   export default {
-    data(){
+    data () {
       return {
-        comments: [ //要傳給List組件通信
+        comments: [ /* 要傳給List組件通信 */
           {name: 'AA', content: 'goood'},
           {name: 'cc', content: 'soso'},
-          {name: 'dd', content: 'BAD'},
+          {name: 'dd', content: 'BAD'}
         ]
       }
     },
     methods: {
-      addComment(comment){
-        this.comments.unshift(comment)//新增在前面
+      addComment (comment) {
+        this.comments.unshift(comment)/* 新增在前面 */
       },
-      deleteComment(index){
+      deleteComment (index) {
         this.comments.splice(index, 1)
       }
     },
-    //2.映射組件
+    /* 2.映射組件 */
     components: {
       Add,
-      List,
+      List
     }
 
   }

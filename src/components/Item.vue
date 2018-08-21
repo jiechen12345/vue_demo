@@ -10,18 +10,17 @@
 
 <script>
   export default {
-    //props:['comment']
+    /* props:['comment'] */
     props: {
       comment: Object,
       deleteComment: Function,
       index: Number
-      //除了指定屬姓名也可以順便指定類型
-    }
-    ,
+      /* 除了指定屬姓名也可以順便指定類型 */
+    },
     methods: {
-      deleteItem(){
+      deleteItem () {
         const {comment, index, deleteComment} = this
-        if (window.confirm('你確定要刪?')) { //${comment.name}
+        if (window.confirm(`你確定要刪${comment.name}的留言?`)) {
           deleteComment(index)
         }
       }
