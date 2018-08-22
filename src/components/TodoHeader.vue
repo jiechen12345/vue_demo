@@ -6,9 +6,9 @@
 
 <script>
   export default {
-      props: {
-        addTodo: Function
-      },
+    props: {
+      /* addTodo: Function 改用自訂義觸發 */
+    },
     data () {
       return {
         title: ''
@@ -24,15 +24,17 @@
         }
         /* 2. 根據輸入生成一個todo物件 */
         const todo = {
-            title,
-          complate: false
+          title,
+          complete: false
         }
         /* 3. 添加到todos */
-        this.addTodo(todo)
+        /* this.addTodo(xx) 改用自訂義觸發 */
+        this.$emit('addTodo', todo)
         /* 4. 清除輸入框 */
         this.title = ''
       }
-    }
+    },
+    watch: {}
   }
 </script>
 
