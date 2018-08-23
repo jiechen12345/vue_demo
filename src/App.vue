@@ -10,11 +10,12 @@
   import TodoHeader from './components/TodoHeader.vue'
   import TodoList from './components/TodoList.vue'
   import TodoFooter from './components/TodoFooter.vue'
+  import storageUtil from './util/storageUtil'
   export default {
     data () {
       return {
         /* 取得localStorage的值 並且轉成json */
-        todos: JSON.parse(window.localStorage.getItem('todos_key') || '[]')
+        todos: storageUtil.readTodos()
       }
     },
     methods: {
@@ -36,10 +37,10 @@
     watch: {
       todos: {
         deep: true, /* 深度監視todos有變動就存檔 */
-        handler: function (value) {
-            console.log(JSON.stringify(value))
-          window.localStorage.setItem('todos_key', JSON.stringify(value))
-        }
+//        handler: function (value) {
+//          storageUtil.saveTodos(value)
+//        } 改寫如下
+        handler: storageUtil.saveTodos
       }
     },
     components: {
