@@ -1,32 +1,33 @@
 <template>
-  <div id="app">
-    <div v-if="!repoUrl">loading..</div>
-    <div v-else>most star repo is <a :herf="repoUrl">{{repoName}}</a></div>
+  <div>
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8">
+        <div class="page-header"><h2>Vue Router - 01</h2></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2">
+        <div class="list-group">
+          <router-link to="/about" class="list-group-item">about</router-link>
+          <router-link to="/home" class="list-group-item">home</router-link>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="panel">
+          <div class="panel-body">
+            <router-view></router-view>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
+
   export default {
-    data () {
-      return {
-        repoUrl: '',
-        repoName: ''
-      }
-    },
-    mounted () {
-      const url = `https://api.github.com/search/repositories?q=vu&sort=stars`
-      axios.get(url).then(
-        response => { // --成功
-          const result = response.data
-          const mostRepo = result.items[0]
-          this.repoUrl = mostRepo.html_url
-          this.repoName = mostRepo.name
-        }).catch(e => {
-          console.log(e.message)
-          alert('失敗了!!')
-      })
-    }
   }
 </script>
 
