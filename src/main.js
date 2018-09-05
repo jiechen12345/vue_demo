@@ -2,7 +2,6 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router' // 因為是index 所以不用全寫
 
 Vue.config.productionTip = false
 
@@ -10,6 +9,5 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   components: { App },
-  template: '<App/>',
-  router
+  template: '<App/>'
 })
