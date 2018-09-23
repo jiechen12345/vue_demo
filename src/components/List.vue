@@ -13,16 +13,26 @@
   import Item from './Item.vue'
   export default {
     /* 聲明接收屬性 */
-    props: ['comments', 'deleteComment'],
+    props: {
+      comments: Array,
+      deleteComment: Function
+    },
     components: {
       Item
     }
   }
 </script>
 
-<style>
+<style scoped>
   .reply {
     margin-top: 0px;
   }
-
+  li {
+    transition: .5s;
+    overflow: hidden;
+  }
+  .handle a {
+    display: block;
+    text-decoration: none;
+  }
 </style>

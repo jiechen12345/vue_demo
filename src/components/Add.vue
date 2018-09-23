@@ -21,7 +21,7 @@
     props: {
       addComment: {
         type: Function,
-        required: true
+        required: true // 必要性
       }
     },
     data () {

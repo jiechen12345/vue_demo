@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2 v-if="firstView">請輸入用戶名稱</h2>
     <h2 v-if="loading">Loading...</h2>
     <h2 v-if="erroMsg">{{erroMsg}}</h2>
     <div class="row">
